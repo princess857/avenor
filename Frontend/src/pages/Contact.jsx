@@ -50,13 +50,33 @@ export default function Contact() {
             ))}
             <img src="https://res.cloudinary.com/hpjbmdes/image/upload/f_auto,q_auto,w_600/v1794952914/Emergency_entrance_building_exte__c92e5dc2_2K.jpg" alt="Entrance" loading="lazy" className="rounded-2xl w-full object-cover aspect-video" />
           </div>
-          <form onSubmit={submit} aria-label="Contact us" className="bg-[#F8FAFC] p-5 sm:p-8 rounded-2xl space-y-4">
-            <input aria-label="Full name" required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Full Name *" className="w-full p-3 rounded-xl border" />
-            <input aria-label="Email address" required value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="Email *" type="email" autoComplete="email" className="w-full p-3 rounded-xl border" />
-            <input aria-label="Phone number" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="Phone" type="tel" autoComplete="tel" className="w-full p-3 rounded-xl border" />
-            <input aria-label="Subject" value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })} placeholder="Subject" className="w-full p-3 rounded-xl border" />
-            <textarea aria-label="Message" required value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="Message *" rows={5} className="w-full p-3 rounded-xl border" />
-            <button type="submit" disabled={loading} className="w-full bg-[#F4BE65] text-[#002B30] font-semibold py-3 rounded-xl hover:bg-[#FFD78D] transition">
+          <form onSubmit={submit} aria-label="Contact us" className="space-y-5 rounded-2xl border border-[#CBD5E1] border-t-4 border-t-[#DFAF55] bg-white p-5 shadow-[0_24px_60px_-12px_rgba(0,59,61,0.32)] ring-1 ring-[#003B3D]/10 sm:p-8">
+            <div className="mb-2">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#8A5A10]">Get in touch</p>
+              <h2 className="mt-1 font-serif text-2xl text-[#003B3D]">Send us a message</h2>
+              <p className="mt-2 text-sm leading-6 text-[#475569]">Complete the form below and our team will be in touch.</p>
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="contact-name" className="block text-sm font-semibold text-[#1E293B]">Full name <span className="text-[#B42318]">*</span></label>
+              <input id="contact-name" required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Your full name" autoComplete="name" className="w-full rounded-xl border border-[#94A3B8] bg-white px-4 py-3 text-[#0F172A] placeholder:text-[#64748B] focus:border-[#003B3D] focus:outline-none focus:ring-2 focus:ring-[#003B3D]/20" />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="contact-email" className="block text-sm font-semibold text-[#1E293B]">Email address <span className="text-[#B42318]">*</span></label>
+              <input id="contact-email" required value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="you@example.com" type="email" autoComplete="email" className="w-full rounded-xl border border-[#94A3B8] bg-white px-4 py-3 text-[#0F172A] placeholder:text-[#64748B] focus:border-[#003B3D] focus:outline-none focus:ring-2 focus:ring-[#003B3D]/20" />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="contact-phone" className="block text-sm font-semibold text-[#1E293B]">Phone number <span className="font-normal text-[#64748B]">(optional)</span></label>
+              <input id="contact-phone" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="Your phone number" type="tel" autoComplete="tel" className="w-full rounded-xl border border-[#94A3B8] bg-white px-4 py-3 text-[#0F172A] placeholder:text-[#64748B] focus:border-[#003B3D] focus:outline-none focus:ring-2 focus:ring-[#003B3D]/20" />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="contact-subject" className="block text-sm font-semibold text-[#1E293B]">Subject <span className="font-normal text-[#64748B]">(optional)</span></label>
+              <input id="contact-subject" value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })} placeholder="What is this regarding?" className="w-full rounded-xl border border-[#94A3B8] bg-white px-4 py-3 text-[#0F172A] placeholder:text-[#64748B] focus:border-[#003B3D] focus:outline-none focus:ring-2 focus:ring-[#003B3D]/20" />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="contact-message" className="block text-sm font-semibold text-[#1E293B]">Message <span className="text-[#B42318]">*</span></label>
+              <textarea id="contact-message" required value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} placeholder="How can we help you?" rows={5} className="w-full resize-y rounded-xl border border-[#94A3B8] bg-white px-4 py-3 text-[#0F172A] placeholder:text-[#64748B] focus:border-[#003B3D] focus:outline-none focus:ring-2 focus:ring-[#003B3D]/20" />
+            </div>
+            <button type="submit" disabled={loading} className="w-full rounded-xl bg-[#F4BE65] py-3 font-semibold text-[#002B30] shadow-sm transition hover:bg-[#FFD78D] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#003B3D] disabled:cursor-not-allowed disabled:opacity-70">
               {loading ? 'Sending...' : 'Send Message'}
             </button>
             {status && <p role="status" aria-live="polite" className="text-sm text-[#003B3D]">{status}</p>}
